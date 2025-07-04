@@ -4,8 +4,8 @@
 
 Aplicación web desarrollada en **ASP.NET Core MVC (.NET 8)** que permite:
 
-- Registrar solicitudes de atenci車n al cliente mediante un formulario.
-- Consultar un informe din芍mico de clientes atendidos con filtros por fecha, ordenamiento y actualización automática.
+- Registrar solicitudes de atención al cliente mediante un formulario.
+- Consultar un informe dinámico de clientes atendidos con filtros por fecha, ordenamiento y actualización automática.
 
 ---
 
@@ -53,8 +53,8 @@ Aplicación web desarrollada en **ASP.NET Core MVC (.NET 8)** que permite:
 
 json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=AtencionClienteDB;Trusted_Connection=True;TrustServerCertificate=True"
-}
+  "DefaultConnection": "Server=.;Database=ATENCION_CLIENTE;Trusted_Connection=True;;TrustServerCertificate=True"
+},
 4. Restaura la base de datos desde el respaldo:
 
 Abre SQL Server Management Studio (SSMS).
