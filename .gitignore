@@ -1,0 +1,58 @@
+## Build results
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio working folder
+.vs/
+
+## Rider
+.idea/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Logs
+*.log
+
+## OS-generated files
+.DS_Store
+Thumbs.db
+
+## Configuration files
+appsettings.Development.json
+appsettings.Local.json
+
+## Publish output
+publish/
+*.Publish.xml
+
+## Backup files
+*.bak
+*.old
+*.tmp
+
+## Node modules (if using frontend tooling)
+node_modules/
+
+## npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## Coverage reports
+coverage/
+
+## SQL Server local DB
+*.mdf
+*.ldf
+
+## JetBrains Rider
+.idea/
+*.sln.iml

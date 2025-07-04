@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebZasylogic", "WebZasylogic.csproj", "{29315423-0A80-4F4B-9774-F4964F95AE8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29315423-0A80-4F4B-9774-F4964F95AE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29315423-0A80-4F4B-9774-F4964F95AE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29315423-0A80-4F4B-9774-F4964F95AE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29315423-0A80-4F4B-9774-F4964F95AE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {255A3240-56B1-467A-8009-B185D19357F8}
+	EndGlobalSection
+EndGlobal

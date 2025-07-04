@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Informe de Clientes Atendidos";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Informe de Clientes Atendidos</h2>
+
+        <div class="row mb-3">
+            <div class="col-md-5">
+                <label for="desde" class="form-label">Desde</label>
+                <input type="date" id="desde" class="form-control" />
+            </div>
+            <div class="col-md-5">
+                <label for="hasta" class="form-label">Hasta</label>
+                <input type="date" id="hasta" class="form-control" />
+            </div>
+        </div>
+
+        <table class="table table-bordered table-hover" id="tablaClientes">
+            <thead class="table-dark">
+                <tr>
+                    <th onclick="ordenar('nombre')">Nombre</th>
+                    <th onclick="ordenar('apellido')">Apellido</th>
+                    <th onclick="ordenar('celular')">Celular</th>
+                    <th onclick="ordenar('email')">Email</th>
+                    <th onclick="ordenar('sexo')">Sexo</th>
+                    <th onclick="ordenar('motivo')">Motivo</th>
+                    <th onclick="ordenar('fecha')">Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla"></tbody>
+        </table>
+
+        <p class="text-muted mt-3">
+            <h6><strong>Simulación de instrucción SQL:</strong></h6>
+            
+            <strong>Consulta para obtener el informe de clientes atendidos en julio de 2025</strong>
+           <br />
+            SELECT 
+               NOMBRE,
+               APELLIDOS,
+               CELULAR,
+               EMAIL,
+               SEXO,
+               MOTIVO,
+            FECHA_ALTA <br />
+            FROM ATENCION_CLIENTE <br />
+            WHERE FECHA_ALTA BETWEEN '2025-07-01' AND '2025-07-31' <br />
+           ORDER BY FECHA_ALTA ASC;
+            
+        </p>
+    </div>
+
+    <script>
+        const datos = [
+            { nombre: "Natalia", apellido: "Meneses", celular: "111111", email: "natalia@gmail.com", sexo: "Mujer", motivo: "Incidencia", fecha: "2021-09-03" },
+            { nombre: "Carolina", apellido: "Ramirez", celular: "222222", email: "carolina@gmail.com", sexo: "Mujer", motivo: "Reclamación", fecha: "2021-09-05" },
+            { nombre: "Andres", apellido: "Corredor", celular: "333333", email: "andres@gmail.com", sexo: "Hombre", motivo: "Reclamación", fecha: "2021-09-09" },
+            { nombre: "Lorena", apellido: "Salazar", celular: "444444", email: "lorena@gmail.com", sexo: "Mujer", motivo: "Queja", fecha: "2021-09-10" },
+            { nombre: "Eduardo", apellido: "Andrade", celular: "555555", email: "eduardo@gmail.com", sexo: "Hombre", motivo: "Sugerencia", fecha: "2021-10-04" },
+            { nombre: "Ana", apellido: "Meneses", celular: "5656556", email: "Ana@gmail.com", sexo: "Mujer", motivo: "Incidencia", fecha: "2025-07-01" },
+            { nombre: "Marta", apellido: "Ramirez", celular: "302548487", email: "Marta@gmail.com", sexo: "Mujer", motivo: "Reclamación", fecha: "2025-07-03" },
+            { nombre: "Felipe", apellido: "Corredor", celular: "30515164551", email: "Felipe@gmail.com", sexo: "Hombre", motivo: "Reclamación", fecha: "2025-07-05" },
+            { nombre: "Sara", apellido: "Salazar", celular: "30515164441", email: "Sara@gmail.com", sexo: "Mujer", motivo: "Queja", fecha: "2025-07-08" },
+            { nombre: "Rodolfo", apellido: "Mendez", celular: "32015164551", email: "Rodolfo@gmail.com", sexo: "Hombre", motivo: "Sugerencia", fecha: "2025-07-10" }
+        ];
+
+        let ordenActual = { campo: null, asc: true };
+
+        function filtrarYMostrar() {
+            const desde = document.getElementById("desde").value;
+            const hasta = document.getElementById("hasta").value;
+
+            let filtrados = datos.filter(d => {
+                if (!desde && !hasta) return true;
+                const f = new Date(d.fecha);
+                return (!desde || f >= new Date(desde)) && (!hasta || f <= new Date(hasta));
+            });
+
+            if (ordenActual.campo) {
+                filtrados.sort((a, b) => {
+                    const valA = a[ordenActual.campo].toLowerCase?.() || a[ordenActual.campo];
+                    const valB = b[ordenActual.campo].toLowerCase?.() || b[ordenActual.campo];
+                    return ordenActual.asc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                });
+            }
+
+            const cuerpo = document.getElementById("cuerpoTabla");
+            cuerpo.innerHTML = "";
+            filtrados.forEach(d => {
+                cuerpo.innerHTML += `
+                    <tr>
+                        <td>${d.nombre}</td>
+                        <td>${d.apellido}</td>
+                        <td>${d.celular}</td>
+                        <td>${d.email}</td>
+                        <td>${d.sexo}</td>
+                        <td>${d.motivo}</td>
+                        <td>${d.fecha}</td>
+                    </tr>`;
+            });
+        }
+
+        function ordenar(campo) {
+            if (ordenActual.campo === campo) {
+                ordenActual.asc = !ordenActual.asc;
+            } else {
+                ordenActual = { campo, asc: true };
+            }
+            filtrarYMostrar();
+        }
+
+        document.getElementById("desde").addEventListener("change", filtrarYMostrar);
+        document.getElementById("hasta").addEventListener("change", filtrarYMostrar);
+
+        setInterval(filtrarYMostrar, 30000); // Refrescar cada 30 segundos
+        window.onload = filtrarYMostrar;
+    </script>
+</body>
+</html>
