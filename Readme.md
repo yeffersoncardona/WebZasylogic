@@ -1,15 +1,15 @@
-# ?? Proyecto Web de Atención al Cliente
+# Proyecto Web de Atenci贸n al Cliente
 
-### ?? Descripción
+###  Descripci贸n
 
-Aplicación web desarrollada en **ASP.NET Core MVC (.NET 8)** que permite:
+Aplicaci贸n web desarrollada en **ASP.NET Core MVC (.NET 8)** que permite:
 
-- Registrar solicitudes de atención al cliente mediante un formulario.
-- Consultar un informe dinámico de clientes atendidos con filtros por fecha, ordenamiento y actualización automática.
+- Registrar solicitudes de atenci杌妌 al cliente mediante un formulario.
+- Consultar un informe din鑺峬ico de clientes atendidos con filtros por fecha, ordenamiento y actualizaci贸n autom谩tica.
 
 ---
 
-### ?? Tecnologías utilizadas
+###  Tecnolog铆as utilizadas
 
 - ASP.NET Core MVC (.NET 8)
 - Bootstrap 5
@@ -19,19 +19,19 @@ Aplicación web desarrollada en **ASP.NET Core MVC (.NET 8)** que permite:
 
 ---
 
-### ?? Estructura del proyecto
+###  Estructura del proyecto
 
 
 
-/Controllers ├── ClienteController.cs └── ClienteApiController.cs
+/Controllers  ClienteController.cs y ClienteApiController.cs
 
-/Views/Cliente ├── Index.cshtml └── Informe.cshtml
+/Views/Cliente / Index.cshtml y Informe.cshtml
 
-/wwwroot └── cliente.js
+/wwwroot / cliente.js
 
-/Models └── Cliente.cs
+/Models / Cliente.cs
 
-/BaseDatos ├── AtencionCliente.bak # Respaldo de la base de datos └── RestaurarBD.sql # Script para restaurar la base de datos
+/BD / AtencionCliente.bak # Respaldo de la base de datos o RestaurarBD.sql # Script para restaurar la base de datos
 
 /appsettings.json /Program.cs /README.md
 
@@ -41,7 +41,7 @@ Aplicación web desarrollada en **ASP.NET Core MVC (.NET 8)** que permite:
 
 ---
 
-### ?? Configuración
+###  Configuraci贸n
 
 1. Clona el repositorio:
    ```bash
@@ -67,7 +67,7 @@ Formulario: https://localhost:7228/Cliente/Index
 
 Informe: https://localhost:7228/Cliente/Informe
 
-Instrucción SQL del informe
+Instrucci贸n SQL del informe
 
 -- Consulta para obtener el informe de clientes atendidos en julio de 2025
 SELECT
@@ -82,7 +82,7 @@ FROM ATENCION_CLIENTE
 WHERE FECHA_ALTA BETWEEN '2025-07-01' AND '2025-07-31'
 ORDER BY FECHA_ALTA ASC;
 Funcionalidades destacadas
-Validación de duplicados por celular
+Validaci贸n de duplicados por celular
 
 Modal de Bootstrap para mensajes
 
@@ -92,9 +92,9 @@ Ordenamiento por columnas
 
 Auto-refresh cada 30 segundos
 
-Simulación de datos en informe (sin conexi贸n real)
+Simulaci贸n de datos en informe (sin conexi贸n real)
 
-Respaldo y restauración de base de datos incluidos
+Respaldo y restauraci贸n de base de datos incluidos
 
 Autor
 Yefferson Cardona Desarrollador .NET | Backend Specialist ?? yeffercardona@hotmail.com ?? https://github.com/yeffersoncardona
